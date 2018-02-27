@@ -1,14 +1,46 @@
 <%= t.include("partials/_head.html") %>
 
   
+<% var data = json.curry_timeline %>
 
-
-  
-
-
+  <% console.log(data.intro)%>
 
   <div class="container">
-    <p>Content goes here...</p>
+    <div class="intro">
+    	<h1 class="headline"><%= data.headline %></h1>
+    	
+ 				<% data.intro.forEach(function(text) { %>
+        <p><%= text.value%></p>
+				<%});%>
+  
+    </div>
+
+    <div id="timeline">
+
+			<% data.dates.forEach(function(d) { %>
+
+    	<div class="entry">
+    		<div class="date"><%= d.date%></div>
+    		<div class="text"><%= d.text%></div>
+
+    		<% if (d.image){ %>
+    		<div class="image">IMAGE!</div>
+ 
+    		<% } else if (d.video){ %>
+    		<div class="video">VIDEO!!</div>
+
+    		<% } else if (d.interactive){ %>
+    		<div class="interactive">
+    			<!-- INSERT INTERACTIVE HERE -->
+    		</div>
+    		
+    		<% } %>
+
+    	</div>
+
+			<%});%>
+
+    </div>
   </div>
 
   
