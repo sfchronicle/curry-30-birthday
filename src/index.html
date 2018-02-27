@@ -1,6 +1,6 @@
 <%= t.include("partials/_head.html") %>
 
-  
+
 <% var data = json.curry_timeline %>
 
   <% console.log(data.intro)%>
@@ -8,11 +8,11 @@
   <div class="container">
     <div class="intro">
     	<h1 class="headline"><%= data.headline %></h1>
-    	
+
  				<% data.intro.forEach(function(text) { %>
         <p><%= text.value%></p>
 				<%});%>
-  
+
     </div>
 
     <div id="timeline">
@@ -25,15 +25,17 @@
 
     		<% if (d.image){ %>
     		<div class="image">IMAGE!</div>
- 
+
     		<% } else if (d.video){ %>
     		<div class="video">VIDEO!!</div>
 
     		<% } else if (d.interactive){ %>
     		<div class="interactive">
     			<!-- INSERT INTERACTIVE HERE -->
+          <div class="age-info">Age: <span class="info age"></span></div>
+          <div id="threes-chart"></div>
     		</div>
-    		
+
     		<% } %>
 
     	</div>
@@ -43,11 +45,9 @@
     </div>
   </div>
 
-  
 
-
-
-
-
-  <script src="app.js" async></script>  
+<script>
+  var threesData = <%= JSON.stringify(json.transposed) %>
+</script>
+<script src="app.js" async></script>
 <%= t.include("partials/_footer.html") %>
