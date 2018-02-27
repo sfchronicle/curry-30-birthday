@@ -8,8 +8,87 @@
 .age-info {
   text-align: center;
   font-family: @block-graphics;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+  padding: 5px;
   .age {
     font-family: @bold-graphics;
     color: @chart-color;
+  }
+  background: lighten(@light-gray,10%);
+  width: 100px;
+  margin: auto;
+}
+
+.interactive-chart {
+  padding: 50px 0;
+  font-family: @block-graphics;
+  line-height: 1.2;
+  .interactive-hed, .interactive-deck {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+  }
+  .interactive-deck {
+    font-family: @med-graphics;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+  .interactive-credit, .note {
+    font-family: @med-graphics;
+    font-size: 14px;
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 10px;
+    a {
+      color: @redlinks;
+    }
+  }
+}
+
+.chart-container {
+  position: relative;
+}
+
+.legend-container {
+  font-size: 12px;
+  font-family: @block-graphics;
+  width: 500px;
+  padding-bottom: 30px;
+  @media @mobile {
+    width: 90%;
+  }
+  margin: auto;
+  .display-flex;
+  .flex-wrap(wrap);
+  @media @mobile {
+    margin: 15px auto;
+  }
+  .element {
+    .flex(0 0 50%);
+    @media @mobile {
+      .flex(0 0 90%);
+    }
+  }
+  .threes-swath, .projectedthrees-swath  {
+    height: 14px;
+    width: 14px;
+    margin: 4px;
+    border-radius: 2px;
+  }
+  .threes-swath {background: @chart-color}
+  .projectedthrees-swath {background: lighten(@chart-color,10%)}
+  .legend-text {
+    width: 250px;
+    // width: auto;
+    padding-left: 20px;
+    vertical-align: text-top;
+  }
+  @media @mobile {
+    padding-bottom: 0;
+    margin-top: 0;
   }
 }

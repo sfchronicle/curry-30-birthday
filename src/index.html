@@ -32,8 +32,6 @@
     		<% } else if (d.interactive){ %>
     		<div class="interactive">
     			<!-- INSERT INTERACTIVE HERE -->
-          <div class="age-info">Age: <span class="info age"></span></div>
-          <div id="threes-chart"></div>
     		</div>
 
     		<% } %>
@@ -45,6 +43,25 @@
     </div>
   </div>
 
+  <div class="interactive-chart">
+    <div class="interactive-hed">Curry is poised to overtake past leaders in 3-pointers</div>
+    <div class="interactive-deck">Stephen Curry is currently seventh on the all-time list for career 3-pointers made, but is far ahead of the pace of the other players on the list. See how their stats compared at similar ages.</div>
+    <div class="legend-container">
+      <div class="element"><div class="threes-swath"><div class="legend-text">Three pointer points</div></div></div>
+      <div class="element"><div class="projectedthrees-swath"><div class="legend-text">Projected three pointer pointss</div></div></div>
+    </div>
+
+    <div class="chart-container">
+      <div class="age-info">Age: <span class="info age"></span></div>
+      <div id="threes-chart"></div>
+    </div>
+    <div class="interactive-credit">Data reporter: Mike Massa   &bull; <a href="mailto:mmassa@sfchronicle.com">mmassa@sfchronicle.com</a></div>
+    <div class="interactive-credit">Interactive producer: Emma O'Neill  &bull; <a href="mailto:eoneill@sfchronicle.com">eoneill@sfchronicle.com</a>   &bull; <a href = "https://twitter.com/emmaruthoneill" target="_blank">@emmaruthoneill</a></div>
+    <div class="note">A player's season age is based on their age on Feb. 1. For example, all stats for this season will count in Curry's age 29 season because he was 29 on Feb. 1.</div>
+    <div class="note">Projections for Curry are based on his per game average of 3.94 made 3-pointers, which is his average over the past 5 1/2 seasons, and him playing 78 games per year. He has said in the past he would like to play 16 seasons, which would take him through his age 36 season.</div>
+
+
+  </div>
 
 <script>
   var threesData = <%= JSON.stringify(json.transposed) %>
