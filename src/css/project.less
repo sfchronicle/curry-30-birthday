@@ -1,6 +1,9 @@
-
+header{
+  opacity:1;
+}
 .headline{
 	text-align:center;
+	font-family:@title;
 }
 
 @chart-color: #3182bd;
@@ -90,5 +93,62 @@
   @media @mobile {
     padding-bottom: 0;
     margin-top: 0;
+  }
+}
+
+
+.entry{
+	margin:2em 0;
+	text-align:center;
+  .display-flex;
+  .justify-content(space-around);
+  .align-items(center);
+  padding:3em 0;
+}
+
+.image{
+  .flex(0 0 35%);
+
+   img{
+    width:100%;
+  }
+}
+.full{
+ display:block;
+
+ .info{
+  text-align:center;
+ }
+}
+
+.info{
+  text-align:left;
+  .flex(0 0 40%);
+}
+.date{
+	font-size:1.5em;
+	font-family:@block-graphics;
+	color:red;
+	border-bottom:1px solid #ccc;
+	display:inline-block;
+  margin-bottom:10px;
+}
+
+.text{
+	text-align:left;
+	max-width:700px;
+	margin:0 auto 1em;
+	font-size:18px;
+}
+
+.video{
+	max-width:800px;
+	margin:0 auto;
+}
+
+.intro{
+  
+  img{
+    width:100%;
   }
 }
