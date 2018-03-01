@@ -5,8 +5,6 @@ var d3 = require('d3');
 var bar_spacing = 20;
 
 var windowWidth = $(window).width();
-console.log("window width = ");
-console.log(windowWidth);
 
 var margin = {
   top: 15,
@@ -33,7 +31,7 @@ width = Math.min(windowWidth,700) - 10 - margin.left - margin.right;
 
 // fills in HTML for year as years toggle
 var updateInfo = function(season) {
-  document.querySelector(".info").innerHTML = `<strong>${season}</strong>`;
+  document.querySelector(".age").innerHTML = `<strong>${season}</strong>`;
 };
 
 var ages = [20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41];
@@ -56,11 +54,9 @@ function drawBars(selectedAge) {
   var barData = threesData.filter(function(data) { return data.Age == selectedAge });
   var barDataThrees = threesData.slice();
 
-  console.log(selectedAge);
-
   if (i == 0) {
 
-	   d3.select("#threes-chart").select("svg").remove();
+     d3.select("#threes-chart").select("svg").remove();
 
      svg = d3.select("#threes-chart").append('svg')
        .attr('width', width + margin.left + margin.right)

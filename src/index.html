@@ -65,9 +65,24 @@
 	    			<div class="text"><%= d.text%></div>
 	    		</div>
 	    		<div class="interactive">
-	    			<!-- INSERT INTERACTIVE HERE -->
-	    		</div>
-	    	</div>
+          <div class="interactive-chart">
+            <div class="interactive-hed"><%=d["interactive-hed"]%></div>
+            <div class="interactive-deck"><%=d["interactive-deck"]%></div>
+            <div class="legend-container">
+              <div class="element"><div class="threes-swath"><div class="legend-text">Three pointer points</div></div></div>
+              <div class="element"><div class="projectedthrees-swath"><div class="legend-text">Projected three pointer points</div></div></div>
+            </div>
+
+            <div class="chart-container">
+              <div class="age-info">Age: <span class="age"></span></div>
+              <div id="threes-chart"></div>
+            </div>
+            <div class="interactive-credit">Data reporter: Mike Massa   &bull; <a href="mailto:mmassa@sfchronicle.com">mmassa@sfchronicle.com</a></div>
+            <div class="interactive-credit">Interactive producer: Emma O'Neill  &bull; <a href="mailto:eoneill@sfchronicle.com">eoneill@sfchronicle.com</a>   &bull; <a href = "https://twitter.com/emmaruthoneill" target="_blank">@emmaruthoneill</a></div>
+            <div class="note"><%=d["interactive-note"]%></div>
+            <div class="note"><%=d["interactive-note2"]%></div>
+          </div>
+        </div>
   			<% } %>
   
 			<%});%>
@@ -79,7 +94,9 @@
 
 
 
+<script>
+  var threesData = <%= JSON.stringify(json.transposed) %>
+</script>
 
-
-  <script src="app.js" async></script>  
+<script src="app.js" async></script>  
 <%= t.include("partials/_footer.html") %>
