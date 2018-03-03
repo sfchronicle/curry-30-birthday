@@ -4,6 +4,14 @@ header{
 .headline{
 	text-align:center;
 	font-family:@title;
+  margin-bottom:0;
+  line-height:1.2;
+}
+
+.pubdate{
+  font-size:18px;
+  text-align:center;
+  margin-bottom:1em;
 }
 
 @chart-color: #3182bd;
@@ -26,7 +34,7 @@ header{
 }
 
 .interactive-chart {
-  padding: 50px 0;
+  padding: 50px 10px;
   font-family: @block-graphics;
   line-height: 1.2;
   .interactive-hed, .interactive-deck {
@@ -50,6 +58,12 @@ header{
       color: @redlinks;
     }
   }
+}
+
+.caption{
+  text-align: right;
+  padding: 0;
+  margin: 0;
 }
 
 .chart-container {
@@ -104,6 +118,11 @@ header{
   .justify-content(space-around);
   .align-items(center);
   padding:3em 0;
+
+  @media @phone-horiz{
+    .flex-direction(column);
+    padding:1.5em 1em;
+  }
 }
 
 .image{
@@ -112,13 +131,23 @@ header{
    img{
     width:100%;
   }
+
+  &.graphic{
+    max-width:700px;
+    margin:0 auto;
+  }
 }
 .full{
  display:block;
 
  .info{
   text-align:center;
+
+  @media @mobile{
+    text-align:left;
+  }
  }
+
 }
 
 .info{
@@ -132,13 +161,30 @@ header{
 	border-bottom:1px solid #ccc;
 	display:inline-block;
   margin-bottom:10px;
+
+  @media @mobile{
+    font-size:1.15em;
+    text-align:left;
+  }
 }
 
 .text{
 	text-align:left;
-	max-width:700px;
+	max-width:450px;
 	margin:0 auto 1em;
 	font-size:18px;
+
+  &.graphic{
+    max-width:600px;
+  }
+
+  @media @mobile{
+    font-size:16px;
+  }
+
+  &.image{
+    margin:0;
+  }
 }
 
 .video{
@@ -151,4 +197,12 @@ header{
   img{
     width:100%;
   }
+}
+
+.credits{
+  font-family:@body;
+  border-top:1px solid #ccc;
+  max-width:700px;
+  padding:1em 0;
+  font-style:italic;
 }

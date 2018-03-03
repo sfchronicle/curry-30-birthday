@@ -9,6 +9,7 @@
     <div class="intro">
     	<img src="./assets/imgs/hero.jpg">
     	<h1 class="headline"><%= data.headline %></h1>
+      <div class="pubdate">March 7, 2018</div>
     	
  				<% data.intro.forEach(function(text) { %>
         <p><%= text.value%></p>
@@ -26,13 +27,22 @@
     		<div class="entry">
 	    		<div class="info">
 	    			<div class="date"><%= d.date%></div>
-	    			<div class="text"><%= d.text%></div>
+	    			<div class="text image"><%= d.text%></div>
 	    		</div>
 	    		<div class="image">
 	    			<img src="<%=d.image%>">
+            <div class="caption"><%= d.caption%></div>
 	    		</div>
 	    	</div>
- 
+
+        <% } else if (d.textonly){ %>
+        <div class="entry full">
+          <div class="info">
+            <div class="date"><%= d.date%></div>
+            <div class="text center"><%= d.text%></div>
+          </div>
+        </div>
+
     		<% } else if (d.video){ %>
     		<div class="entry full">
 	    		<div class="info">
@@ -49,17 +59,28 @@
     		<div class="entry full">
 	    		<div class="info">
 	    			<div class="date"><%= d.date%></div>
-	    			<div class="text"><%= d.text%></div>
+	    			<div class="text center"><%= d.text%></div>
 	    		</div>
 	    		<div class="image">
 	    			<img src="<%=d.full%>">
 	    		</div>
 	      </div>
 
+        <% } else if (d.graphic){ %>
+        <div class="entry full">
+          <div class="info">
+            <div class="date"><%= d.date%></div>
+            <div class="text graphic"><%= d.text%></div>
+          </div>
+          <div class="image graphic">
+            <img src="<%=d.graphic%>">
+          </div>
+        </div>
+
 	      
 
     		<% } else if (d.interactive){ %>
-    		<div class="entry full">
+    		<div class="full">
 	    		<div class="info">
 	    			<div class="date"><%= d.date%></div>
 	    			<div class="text"><%= d.text%></div>
@@ -87,6 +108,10 @@
   
 			<%});%>
 
+    </div>
+    <div class="credits">
+      <p>Graphics by Tam Duong</p>
+      <p>Development by Lucio Villa</p>
     </div>
   </div>
 
