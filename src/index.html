@@ -1,6 +1,6 @@
 <%= t.include("partials/_head.html") %>
 
-  
+
 <% var data = json.curry_timeline %>
 
 
@@ -10,18 +10,18 @@
     	<img src="./assets/imgs/hero.jpg">
     	<h1 class="headline"><%= data.headline %></h1>
       <div class="pubdate">March 7, 2018</div>
-    	
+
  				<% data.intro.forEach(function(text) { %>
         <p><%= text.value%></p>
 				<%});%>
-  
+
     </div>
 
     <div id="timeline">
 
 			<% data.dates.forEach(function(d) { %>
 
-    	
+
 
     		<% if (d.image){ %>
     		<div class="entry">
@@ -54,7 +54,7 @@
 	      </div>
 
 
- 
+
     		<% } else if (d.full){ %>
     		<div class="entry full">
 	    		<div class="info">
@@ -77,7 +77,7 @@
           </div>
         </div>
 
-	      
+
 
     		<% } else if (d.interactive){ %>
     		<div class="full">
@@ -90,8 +90,8 @@
             <div class="interactive-hed"><%=d["interactive-hed"]%></div>
             <div class="interactive-deck"><%=d["interactive-deck"]%></div>
             <div class="legend-container">
-              <div class="element"><div class="threes-swath"><div class="legend-text">Three pointer points</div></div></div>
-              <div class="element"><div class="projectedthrees-swath"><div class="legend-text">Projected three pointer points</div></div></div>
+              <div class="element"><div class="threes-swath"><div class="legend-text">Three-pointers made</div></div></div>
+              <div class="element"><div class="projectedthrees-swath"><div class="legend-text">Projected three-pointers</div></div></div>
             </div>
 
             <div class="chart-container">
@@ -105,7 +105,7 @@
           </div>
         </div>
   			<% } %>
-  
+
 			<%});%>
 
     </div>
@@ -115,7 +115,7 @@
     </div>
   </div>
 
-  
+
 
 
 
@@ -123,5 +123,5 @@
   var threesData = <%= JSON.stringify(json.transposed) %>
 </script>
 
-<script src="app.js" async></script>  
+<script src="app.js" async></script>
 <%= t.include("partials/_footer.html") %>

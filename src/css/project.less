@@ -14,7 +14,8 @@ header{
   margin-bottom:1em;
 }
 
-@chart-color: #3182bd;
+@chart-color: #F2C724;//#3182bd;
+@dark-chart-color: #EFA329;
 
 .age-info {
   text-align: center;
@@ -26,11 +27,28 @@ header{
   padding: 5px;
   .age {
     font-family: @bold-graphics;
-    color: @chart-color;
+    color: @dark-chart-color;
   }
   background: lighten(@light-gray,10%);
   width: 100px;
   margin: auto;
+}
+
+.threes_tooltip {
+  position: absolute;
+  font-size: 14px;
+  font-family: @block-graphics;
+  padding: 10px;
+  border-radius: 3px;
+  background: lighten(@light-gray,20%);
+  border: 1px @dark-gray solid;
+  max-width: 200px;
+  &:empty {
+    display: none;
+  }
+  @media @mobile {
+    font-size: 12px;
+  }
 }
 
 .interactive-chart {
@@ -73,7 +91,7 @@ header{
 .legend-container {
   font-size: 12px;
   font-family: @block-graphics;
-  width: 500px;
+  width: 350px;
   padding-bottom: 30px;
   @media @mobile {
     width: 90%;
@@ -97,9 +115,9 @@ header{
     border-radius: 2px;
   }
   .threes-swath {background: @chart-color}
-  .projectedthrees-swath {background: lighten(@chart-color,10%)}
+  .projectedthrees-swath {background: @dark-chart-color}
   .legend-text {
-    width: 250px;
+    width: 170px;
     // width: auto;
     padding-left: 20px;
     vertical-align: text-top;
@@ -193,7 +211,7 @@ header{
 }
 
 .intro{
-  
+
   img{
     width:100%;
   }

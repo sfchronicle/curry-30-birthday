@@ -4,6 +4,8 @@ var d3 = require('d3');
 // colors for bubble graph
 var bar_spacing = 20;
 
+var formatthousands = d3.format(",");
+
 var windowWidth = $(window).width();
 
 var margin = {
@@ -42,12 +44,23 @@ var tickTime = function() {
   drawBars(ages[i]);
   updateInfo(ages[i]);
   i = (i + 1) % ages.length;
-  loop = setTimeout(tickTime, 500);
+  if (i == 11){
+    loop = setTimeout(tickTime, 10000);
+  } else {
+    loop = setTimeout(tickTime, 1000);
+  }
 };
 
 tickTime();
 
 var svg, x, y;
+
+var threes_tooltip = d3.select("body")
+   .append("div")
+   .attr("class","threes_tooltip")
+   .style("position", "absolute")
+   .style("z-index", "10")
+   .style("display", "none")
 
 function drawBars(selectedAge) {
 
@@ -57,6 +70,8 @@ function drawBars(selectedAge) {
   if (i == 0) {
 
      d3.select("#threes-chart").select("svg").remove();
+
+     // show tooltip
 
      svg = d3.select("#threes-chart").append('svg')
        .attr('width', width + margin.left + margin.right)
@@ -111,10 +126,10 @@ function drawBars(selectedAge) {
       .data(barData)
     .enter().append("rect")
       .style("fill", function(d){
-        if (d.Player == "Stephen Curry" && selectedAge > 30){
-          return "#64B5F0";
+        if (d.Player == "Stephen Curry" && selectedAge > 29){
+          return "#EFA329";//"#64B5F0";
         } else {
-          return "#3182bd";
+          return "#F2C724";//"#3182bd";
         }
       })
       .attr("x", function(d) {
@@ -125,11 +140,45 @@ function drawBars(selectedAge) {
         return y(d.value);
       })
       .attr("height", 0)
+      .on("mouseover", function(d) {
+        if (d.Player == "Stephen Curry" && selectedAge > 29){
+          threes_tooltip.html(`
+            <div><b>${d.Player}</b></div>
+            <div>Age: <b>${d.Age}</b></div>
+            <div>Projected three-pointers: <b>${formatthousands(d.value)}</b></div>
+          `);
+        } else {
+          threes_tooltip.html(`
+            <div><b>${d.Player}</b></div>
+            <div>Age: <b>${d.Age}</b></div>
+            <div>Three-pointers made: <b>${formatthousands(d.value)}</b></div>
+          `);
+        }
+        threes_tooltip.style("display", "block");
+      })
+      .on("mousemove", function(d) {
+        if (screen.width <= 480) {
+          return threes_tooltip
+            .style("top", (d3.event.pageY+20)+"px")
+            .style("left",function(){
+              if (d3.event.pageX > 250){
+                return (d3.event.pageX-80)+"px";
+              } else {
+                return (d3.event.pageX-20)+"px";
+              }
+            });
+        } else {
+          return threes_tooltip
+            .style("top", (d3.event.pageY+20)+"px")
+            .style("left",(d3.event.pageX-80)+"px");
+        }
+      })
+      .on("mouseout", function(){return threes_tooltip.style("display", "none");})
       .transition()
       .duration(100)
       .attr("height", function(d) {
-        if (d.Player == "Stephen Curry" && selectedAge > 30){
-          return y(2503) - y(d.value);
+        if (d.Player == "Stephen Curry" && selectedAge > 29){
+          return y(2092) - y(d.value);
         } else {
           return height - y(d.value);
         }
