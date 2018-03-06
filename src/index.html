@@ -25,14 +25,14 @@
 
     		<% if (d.image){ %>
     		<div class="entry">
-	    		<div class="info">
-	    			<div class="date"><%= d.date%></div>
-	    			<div class="text image"><%= d.text%></div>
-	    		</div>
 	    		<div class="image">
 	    			<img src="<%=d.image%>">
             <div class="caption"><%= d.caption%></div>
 	    		</div>
+          <div class="info">
+            <div class="date"><%= d.date%></div>
+            <div class="text image"><%= d.text%></div>
+          </div>
 	    	</div>
 
         <% } else if (d.textonly){ %>
@@ -52,6 +52,23 @@
 	    		<div class="video"><div class='embed-container'><iframe src='<%= d.video %>' frameborder='0' allowfullscreen></iframe></div>
 	        <div class="caption"><span class="byline"></span></div></div>
 	      </div>
+
+
+
+        <% } else if (d.jw){ %>
+        <div class="entry full">
+          <div class="info">
+            <div class="date"><%= d.date%></div>
+            <div class="text"><%= d.text%></div>
+          </div>
+          <div class="video">
+            <div id="iframe-WI5hJrOT-wrapper" class="hnp-iframe-wrapper">
+              <iframe id="iframe-WI5hJrOT-container" class="hnp-iframe-container" width="100%" height="100%" frameborder="0" scrolling="no" layout="responsive" src="https://www.s.sfgate.com/sports/mediaIframe/Stephen-Curry-and-the-Art-of-Dribbling-1207244.php?site=sfgate"></iframe>
+            </div>
+          </div>
+        </div>
+
+        
 
 
 
@@ -94,7 +111,7 @@
 
     		<% } else if (d.interactive){ %>
     		<div class="full">
-	    		<div class="info">
+	    		<div class="info interactive">
 	    			<div class="date"><%= d.date%></div>
 	    			<div class="text"><%= d.text%></div>
 	    		</div>
@@ -121,6 +138,35 @@
 
 			<%});%>
 
+    </div>
+    <div class="related">
+      <div class="rel-title">Related Content</div>
+      <div class="rel-wrap">
+        <div class="rel-content">
+          <a href="" target="_blank">
+            <img src="https://s.hdnux.com/photos/71/57/04/15135000/3/premium_gallery_landscape.jpg">
+            <h2>
+              This is a headline
+            </h2>
+          </a>
+        </div>
+        <div class="rel-content">
+          <a href="" target="_blank">
+            <img src="https://s.hdnux.com/photos/71/57/04/15135000/3/premium_gallery_landscape.jpg">
+            <h2>
+              This is a headline
+            </h2>
+          </a>
+        </div>
+        <div class="rel-content">
+          <a href="" target="_blank">
+            <img src="https://s.hdnux.com/photos/71/57/04/15135000/3/premium_gallery_landscape.jpg">
+            <h2>
+              This is a headline
+            </h2>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="end">
       <p>Research by <a href="mailto:mmassa@sfchronicle.com">Mike Massa</a>, graphics by <a href="mailto:TDuong@sfchronicle.com">Tam Duong</a> and development by <a href="mailto:lvilla@sfchronicle.com">Lucio Villa</a>.</p>

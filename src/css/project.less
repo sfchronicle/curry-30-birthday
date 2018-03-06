@@ -132,23 +132,27 @@ header{
   }
 }
 
+.container{
+  background-image: url('./assets/imgs/bg.png');
+  background-size: 108%;
+}
 
 .entry{
 	margin:2em 0;
 	text-align:center;
   .display-flex;
-  .justify-content(space-around);
+  .justify-content(center);
   .align-items(center);
   padding:3em 0;
 
   @media @phone-horiz{
-    .flex-direction(column);
+    .flex-direction(column-reverse);
     padding:1.5em 1em;
   }
 }
 
 .image{
-  .flex(0 0 35%);
+  .flex(0 0 50%);
 
    img{
     width:100%;
@@ -162,24 +166,40 @@ header{
 .full{
  display:block;
 
- .info{
-  text-align:center;
+  .info{
+    text-align:center;
 
-  @media @mobile{
-    text-align:left;
+    @media @mobile{
+      text-align:left;
+    }
   }
- }
 
+  .text{
+    max-width:650px;
+  }
 }
+
 
 .info{
   text-align:left;
-  .flex(0 0 40%);
+  .flex(0 0 50%);
+  padding:0 2em;
+
+  @media @phone-horiz{
+    padding:0;
+    margin-bottom:1em;
+  }
+
+  &.interactive{
+    @media @phone-horiz{
+      padding:0 1em;
+    }
+  }
 }
 .date{
 	font-size:1.5em;
 	font-family:@block-graphics;
-	color:red;
+	color:#0982eb;
 	border-bottom:1px solid #ccc;
 	display:inline-block;
   margin-bottom:10px;
@@ -235,6 +255,10 @@ header{
   }
 }
 
+.jw-sharing-content{
+  display:none;
+}
+
 .end{
   max-width: 700px;
   margin: 0 auto;
@@ -243,3 +267,62 @@ header{
   font-size: 16px;
   font-style: italic;
 }
+
+.related{
+  border-top:1px solid #ccc;
+  padding-top: 1em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rel-wrap{
+  .display-flex;
+  margin:0 auto 2em;
+  max-width: 750px;
+  .justify-content(center); 
+  .flex-wrap(wrap);
+
+  img{
+    width:100%;
+  }
+}
+
+.rel-content{
+  .flex(0 0 33%);
+  padding:0 5px;
+  margin-bottom:1em;
+
+  @media @mobile{
+    .flex(0 0 100%);
+  }
+
+  
+  h2{
+    font-size: 0.8em;
+    line-height: 1.2;
+    margin:0;
+  }
+}
+
+.rel-title{
+  text-align: center;
+  margin-bottom:1em; 
+  font-family: @block-graphics;
+  text-transform: uppercase;
+}
+
+/* JW Player */
+#iframe-WI5hJrOT-wrapper{
+  padding-top:56.25%;
+  position:relative;
+  width:100%;
+}
+#iframe-WI5hJrOT-container{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  top:0;
+}
+
+
