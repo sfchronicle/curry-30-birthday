@@ -63,8 +63,21 @@
 	    		</div>
 	    		<div class="image">
 	    			<img src="<%=d.full%>">
+            <div class="caption padding"><%= d.caption%></div>
 	    		</div>
 	      </div>
+
+        <% } else if (d.bars){ %>
+        <div class="entry full">
+          <div class="info">
+            <div class="date"><%= d.date%></div>
+            <div class="text graphic"><%= d.text%></div>
+          </div>
+          <div class="image">
+            <img class="bars" src="./assets/imgs/bars.jpg">
+            <img class="mobile-bars" src="./assets/imgs/bars-mobile.jpg">
+          </div>
+        </div>
 
         <% } else if (d.graphic){ %>
         <div class="entry full">
@@ -109,9 +122,8 @@
 			<%});%>
 
     </div>
-    <div class="credits">
-      <p>Graphics by Tam Duong</p>
-      <p>Development by Lucio Villa</p>
+    <div class="end">
+      <p>Research by <a href="mailto:mmassa@sfchronicle.com">Mike Massa</a>, graphics by <a href="mailto:TDuong@sfchronicle.com">Tam Duong</a> and development by <a href="mailto:lvilla@sfchronicle.com">Lucio Villa</a>.</p>
     </div>
   </div>
 
