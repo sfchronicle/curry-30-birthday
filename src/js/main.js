@@ -44,7 +44,7 @@ var tickTime = function() {
   drawBars(ages[i]);
   updateInfo(ages[i]);
   i = (i + 1) % ages.length;
-  if (i == 11){
+  if (i == 11 || i == 0){
     loop = setTimeout(tickTime, 10000);
   } else {
     loop = setTimeout(tickTime, 1000);
@@ -126,7 +126,7 @@ function drawBars(selectedAge) {
       .data(barData)
     .enter().append("rect")
       .style("fill", function(d){
-        if (d.Player == "Stephen Curry" && selectedAge > 29){
+        if (d.Player == "Stephen Curry*" && selectedAge > 29){
           return "#EFA329";//"#64B5F0";
         } else {
           return "#F2C724";//"#3182bd";
@@ -141,7 +141,7 @@ function drawBars(selectedAge) {
       })
       .attr("height", 0)
       .on("mouseover", function(d) {
-        if (d.Player == "Stephen Curry" && selectedAge > 29){
+        if (d.Player == "Stephen Curry*" && selectedAge > 29){
           threes_tooltip.html(`
             <div><b>${d.Player}</b></div>
             <div>Age: <b>${d.Age}</b></div>
@@ -177,8 +177,8 @@ function drawBars(selectedAge) {
       .transition()
       .duration(100)
       .attr("height", function(d) {
-        if (d.Player == "Stephen Curry" && selectedAge > 29){
-          return y(2092) - y(d.value);
+        if (d.Player == "Stephen Curry*" && selectedAge > 29){
+          return y(2126) - y(d.value);
         } else {
           return height - y(d.value);
         }
