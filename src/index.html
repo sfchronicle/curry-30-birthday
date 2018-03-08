@@ -26,7 +26,7 @@
     		<% if (d.image){ %>
     		<div class="entry">
 	    		<div class="image">
-	    			<img src="<%=d.image%>">
+	    			<img data-src="<%=d.image%>">
             <div class="caption"><%= d.caption%></div>
 	    		</div>
           <div class="info">
@@ -79,7 +79,7 @@
 	    			<div class="text center"><%= d.text%></div>
 	    		</div>
 	    		<div class="image">
-	    			<img src="<%=d.full%>">
+	    			<img data-src="<%=d.full%>">
             <div class="caption padding"><%= d.caption%></div>
 	    		</div>
 	      </div>
@@ -103,7 +103,7 @@
             <div class="text graphic"><%= d.text%></div>
           </div>
           <div class="image graphic">
-            <img src="<%=d.graphic%>">
+            <img data-src="<%=d.graphic%>">
           </div>
         </div>
 
@@ -145,7 +145,7 @@
       <div class="rel-wrap">
         <div class="rel-content">
           <a href="https://www.sfchronicle.com/warriors/article/Stephen-Curry-at-30-From-baby-faced-Warriors-12736239.php" target="_blank">
-            <img src="https://s.hdnux.com/photos/67/44/06/14565822/3/premium_gallery_landscape.jpg">
+            <img data-src="https://s.hdnux.com/photos/67/44/06/14565822/3/premium_gallery_landscape.jpg"/>
             <h2>
               From baby-faced guard to basketball revolutionary
             </h2>
@@ -153,7 +153,7 @@
         </div>
         <div class="rel-content">
           <a href="https://www.sfchronicle.com/warriors/article/Warriors-Core-Four-aim-to-stay-young-at-heart-12736250.php" target="_blank">
-            <img src="https://s.hdnux.com/photos/66/26/64/14249249/3/premium_gallery_landscape.jpg">
+            <img data-src="https://s.hdnux.com/photos/66/26/64/14249249/3/premium_gallery_landscape.jpg">
             <h2>
               Warriors’ Core Four aim to stay young at heart
             </h2>
@@ -161,7 +161,7 @@
         </div>
         <div class="rel-content">
           <a href="https://www.sfchronicle.com/trivia/trivia-sf-curry/" target="_blank">
-            <img src="https://s.hdnux.com/photos/71/75/62/15195265/5/premium_gallery_landscape.jpg">
+            <img data-src="https://s.hdnux.com/photos/71/75/62/15195265/5/premium_gallery_landscape.jpg">
             <h2>
               Quiz: How well do you know Stephen Curry?
             </h2>
@@ -183,4 +183,5 @@
 </script>
 
 <script src="app.js" async></script>
+<script>var CurryLazyLoad = new LazyLoad();</script>
 <%= t.include("partials/_footer.html") %>
