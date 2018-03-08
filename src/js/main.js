@@ -1,6 +1,8 @@
 require("./lib/social"); //Do not delete
 var d3 = require('d3');
 
+$('a[href^="http"]').attr('target','_blank');
+
 // colors for bubble graph
 var bar_spacing = 20;
 
