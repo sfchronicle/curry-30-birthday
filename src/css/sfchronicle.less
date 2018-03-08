@@ -37,16 +37,21 @@ main {
 }
 
 a {
+  // border-bottom: 2px solid @gray-blue;
+  // color: @dark-gray;
   color: @gray-blue;
   text-decoration: none;
   outline: 0 !important;
-  &:hover {
-    color: darken(@gray-blue,10%);
-  }
+  // :hover {
+  //   color: @darken(@dark-gray,10%);
+  // }
+  // &:hover {
+  //   color: darken(@gray-blue,10%);
+  // }
   img {
     border: none;
   }
-  :hover {
+  &:hover {
     color: darken(@gray-blue,10%);
   }
 }
@@ -83,15 +88,22 @@ p {
   padding: 0 15px;
   margin-bottom: 1em;
 
-  a {
-    text-decoration: none;
-    color: @gray-blue;
-  }
-
   @media @mobile {
       font-size: 0.8em;
   }
 
+}
+
+.text, p, .interactive-credit {
+  a {
+    text-decoration: none;
+    border-bottom: 2px solid @gray-blue;
+    // color: @gray-blue;
+    color: @black !important;
+    // &:hover {
+    //   color: @darken( @dark-gray,10%);
+    // }
+  }
 }
 
 li {
