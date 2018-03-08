@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <%= t.include("partials/_meta.html") %>
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.6.0/lazyload.min.js"></script>
+    <script src="//projects.sfchronicle.com/shared/js/lazyload.js"></script>
   </head>
 
   <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
